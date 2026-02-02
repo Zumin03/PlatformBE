@@ -1,0 +1,344 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\controllers\\measurementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\controllers\\measurementcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\service\\measurementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\service\\measurementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\exceptions\\deserializationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\exceptions\\deserializationexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\exceptions\\instrumentnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\exceptions\\instrumentnotfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\service\\imeasurementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\service\\imeasurementservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\service\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\service\\repositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\model\\measurementdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\model\\measurementdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\entities\\measuremententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\entities\\measuremententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\service\\iinstrumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\service\\iinstrumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\service\\instrumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\service\\instrumentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\service\\irepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\service\\irepositoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\entities\\instrumententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\entities\\instrumententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\model\\instrumentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\model\\instrumentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\model\\measurementrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\model\\measurementrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\model\\selftestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\model\\selftestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|c:\\users\\boszm\\source\\repos\\platformtest\\platformtest\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{338F45EB-F2E7-6F53-C230-4D3317502555}|PlatformTest\\PlatformTest.csproj|solutionrelative:platformtest\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "InstrumentDTO.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\InstrumentDTO.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Model\\InstrumentDTO.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\InstrumentDTO.cs",
+              "RelativeToolTip": "PlatformTest\\Model\\InstrumentDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T14:39:43.945Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SelfTestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\SelfTestDTO.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Model\\SelfTestDTO.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\SelfTestDTO.cs",
+              "RelativeToolTip": "PlatformTest\\Model\\SelfTestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:07:50.4Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DeserializationException.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Exceptions\\DeserializationException.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Exceptions\\DeserializationException.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Exceptions\\DeserializationException.cs",
+              "RelativeToolTip": "PlatformTest\\Exceptions\\DeserializationException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T20:08:27.423Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InstrumentNotFoundException.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Exceptions\\InstrumentNotFoundException.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Exceptions\\InstrumentNotFoundException.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Exceptions\\InstrumentNotFoundException.cs",
+              "RelativeToolTip": "PlatformTest\\Exceptions\\InstrumentNotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T10:17:29.193Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MeasurementService.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\MeasurementService.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Service\\MeasurementService.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\MeasurementService.cs",
+              "RelativeToolTip": "PlatformTest\\Service\\MeasurementService.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAuwCEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T09:30:59.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IMeasurementService.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\IMeasurementService.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Service\\IMeasurementService.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\IMeasurementService.cs",
+              "RelativeToolTip": "PlatformTest\\Service\\IMeasurementService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAsAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T09:30:52.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MeasurementEntity.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Entities\\MeasurementEntity.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Entities\\MeasurementEntity.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Entities\\MeasurementEntity.cs",
+              "RelativeToolTip": "PlatformTest\\Entities\\MeasurementEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T22:38:18.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "RepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\RepositoryService.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Service\\RepositoryService.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\RepositoryService.cs",
+              "RelativeToolTip": "PlatformTest\\Service\\RepositoryService.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAcwCsAAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T17:26:55.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InstrumentEntity.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Entities\\InstrumentEntity.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Entities\\InstrumentEntity.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Entities\\InstrumentEntity.cs",
+              "RelativeToolTip": "PlatformTest\\Entities\\InstrumentEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T11:33:26.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IRepositoryService.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\IRepositoryService.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Service\\IRepositoryService.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\IRepositoryService.cs",
+              "RelativeToolTip": "PlatformTest\\Service\\IRepositoryService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T10:29:36.726Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MeasurementController.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Controllers\\MeasurementController.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Controllers\\MeasurementController.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Controllers\\MeasurementController.cs",
+              "RelativeToolTip": "PlatformTest\\Controllers\\MeasurementController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwCcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T09:36:11.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IInstrumentService.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\IInstrumentService.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Service\\IInstrumentService.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\IInstrumentService.cs",
+              "RelativeToolTip": "PlatformTest\\Service\\IInstrumentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T10:54:18.587Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InstrumentService.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\InstrumentService.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Service\\InstrumentService.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Service\\InstrumentService.cs",
+              "RelativeToolTip": "PlatformTest\\Service\\InstrumentService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T14:00:14.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MeasurementDTO.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\MeasurementDTO.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Model\\MeasurementDTO.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\MeasurementDTO.cs",
+              "RelativeToolTip": "PlatformTest\\Model\\MeasurementDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAIAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T16:08:52.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MeasurementRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\MeasurementRequestDTO.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Model\\MeasurementRequestDTO.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Model\\MeasurementRequestDTO.cs",
+              "RelativeToolTip": "PlatformTest\\Model\\MeasurementRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T10:02:09.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Program.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Program.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Program.cs",
+              "RelativeToolTip": "PlatformTest\\Program.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T11:19:00.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "PlatformTest\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "PlatformTest\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T12:48:49.877Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\appsettings.json",
+              "RelativeDocumentMoniker": "PlatformTest\\appsettings.json",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\appsettings.json",
+              "RelativeToolTip": "PlatformTest\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-30T13:02:06.145Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "PlatformTest\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\boszm\\source\\repos\\PlatformTest\\PlatformTest\\appsettings.Development.json",
+              "RelativeToolTip": "PlatformTest\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAB5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-30T13:02:19.253Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
