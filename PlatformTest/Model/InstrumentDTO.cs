@@ -1,4 +1,6 @@
-﻿namespace PlatformTest.Model
+﻿using PlatformTest.Enums;
+
+namespace PlatformTest.Model
 {
     public class InstrumentDTO
     {
@@ -7,13 +9,13 @@
             string deviceName,
             string channel,
             string softwareVersion,
-            bool isOperational)
+            string instrumentState)
         {
             DeviceId = deviceId;
             DeviceName = deviceName;
             Channel = channel;
             SoftwareVersion = softwareVersion;
-            IsOperational = isOperational;
+            InstrumentState = instrumentState;
         }
 
         public string DeviceId { get; set; }
@@ -24,6 +26,6 @@
 
         public string SoftwareVersion { get; set; }
 
-        public bool IsOperational { get; set; }
+        public string InstrumentState { get; set; }
     }
 }

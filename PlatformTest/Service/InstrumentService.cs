@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PlatformTest.Entities;
+using PlatformTest.Enums;
 using PlatformTest.Model;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -45,12 +46,11 @@ namespace PlatformTest.Service
                     {
                         var instrumentEntity = DeserializeInstrument(identificationResponse);
                         instrumentEntity.Port = serialPort.PortName;
-                        instrumentEntity.IsConnected = true;
 
                         serialPort.WriteLine("SELFTEST");
                         var selfTestResponse = serialPort.ReadLine()?.Trim();
 
-                        instrumentEntity.IsOperational = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : false;
+                        instrumentEntity.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
 
                         await repositorySerice.RegisterInstrument(instrumentEntity);
                     }
@@ -106,16 +106,16 @@ namespace PlatformTest.Service
             return selfTestDTO;
         }
 
-        public bool GetSelfTestResult(string selfTestJSON)
+        public InstrumentState GetSelfTestResult(string selfTestJSON)
         {
             var selfTest = DeserializeSelfTest(selfTestJSON);
             if(selfTest.SensorState == "OK")
             {
-                return true;
+                return InstrumentState.Connected;
             }
             else
             {
-                return false;
+                return InstrumentState.Faulted;
             }
         }
 
@@ -134,7 +134,7 @@ namespace PlatformTest.Service
                 instrument.DeviceName,
                 instrument.Channel,
                 instrument.SoftwareVersion,
-                instrument.IsOperational);
+                instrument.InstrumentState.ToString());
 
         }
     }

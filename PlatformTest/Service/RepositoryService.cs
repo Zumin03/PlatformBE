@@ -1,9 +1,10 @@
-﻿using PlatformTest.Model;
+﻿using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using PlatformTest.Data;
 using PlatformTest.Entities;
-using Microsoft.EntityFrameworkCore;
+using PlatformTest.Enums;
 using PlatformTest.Exceptions;
+using PlatformTest.Model;
 
 namespace PlatformTest.Service
 {
@@ -56,8 +57,7 @@ namespace PlatformTest.Service
             logger.LogInformation("Reseting Instruments table to default state");
             await db.instruments.ExecuteUpdateAsync(setters =>
                     setters
-                    .SetProperty(i => i.IsConnected, false)
-                    .SetProperty(i => i.IsOperational, false));
+                    .SetProperty(i => i.InstrumentState, InstrumentState.Disconnected));
                     
         }
 
