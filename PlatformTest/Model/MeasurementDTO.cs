@@ -2,6 +2,20 @@
 {
     public class MeasurementDTO
     {
+        public MeasurementDTO(
+            string deviceName,
+            string channel,
+            float value,
+            string unit,
+            DateTime measuredAt)
+        {
+            DeviceName = deviceName;
+            Channel = channel;
+            Value = value;
+            Unit = unit;
+            MeasuredAt = measuredAt;
+        }
+
         public string DeviceName { get; set; }
 
         public string Channel { get; set; }

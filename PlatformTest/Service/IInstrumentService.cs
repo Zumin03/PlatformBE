@@ -23,5 +23,11 @@ namespace PlatformTest.Service
         /// Detects instruments by checking communication ports.
         /// </summary>
         Task DetectInstrumentsAsync();
+
+        /// <summary>
+        /// Retrieves all recorded instruments and returns them in DTO format.
+        /// </summary>
+        /// <returns></returns>
+        Task<IEnumerable<InstrumentDTO>> GetInstrumentsAsync();
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PlatformTest.Entities;
 using PlatformTest.Exceptions;
 using PlatformTest.Model;
 using System.IO.Ports;
+using System.Threading.Channels;
 
 namespace PlatformTest.Service
 {
@@ -45,24 +47,22 @@ namespace PlatformTest.Service
             return response;
         }
 
-        private MeasurementDTO MapMeasurementToDTO(MeasurementEntity measurement)
-        {
-            return new MeasurementDTO()
-            {
-                DeviceName = measurement.Instument.DeviceName,
-                Channel = measurement.Instument.Channel,
-                Value = measurement.Value,
-                Unit = measurement.Instument.Unit,
-                MeasuredAt = measurement.MeasuredAt,
-            };
-        }
-
         /// <inheritdoc/>
         public MeasurementEntity DeserializeMeasurement(string measurementJSON)
         {
             var result = JsonConvert.DeserializeObject<MeasurementEntity>(measurementJSON)
                 ?? throw new DeserializationException(measurementJSON);
             return result;
+        }
+
+        private MeasurementDTO MapMeasurementToDTO(MeasurementEntity measurement)
+        {
+            return new MeasurementDTO(
+                measurement.Instument.DeviceName,
+                measurement.Instument.Channel,
+                measurement.Value,
+                measurement.Instument.Unit,
+                measurement.MeasuredAt);
         }
     }
 }

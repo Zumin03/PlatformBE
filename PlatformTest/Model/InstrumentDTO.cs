@@ -7,23 +7,23 @@
             string deviceName,
             string channel,
             string softwareVersion,
-            string port)
+            bool isOperational)
         {
             DeviceId = deviceId;
             DeviceName = deviceName;
             Channel = channel;
             SoftwareVersion = softwareVersion;
-            Port = port;
+            IsOperational = isOperational;
         }
 
-        public string DeviceId { get; }
+        public string DeviceId { get; set; }
 
-        public string DeviceName { get; }
+        public string DeviceName { get; set; }
 
-        public string Channel { get; }
+        public string Channel { get; set; }
 
-        public string SoftwareVersion { get; }
+        public string SoftwareVersion { get; set; }
 
-        public string Port { get; set; }
+        public bool IsOperational { get; set; }
     }
 }

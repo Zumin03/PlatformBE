@@ -1,6 +1,8 @@
 ﻿using Newtonsoft.Json;
 using PlatformTest.Entities;
 using PlatformTest.Model;
+using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.IO.Ports;
 
 namespace PlatformTest.Service
@@ -115,6 +117,25 @@ namespace PlatformTest.Service
             {
                 return false;
             }
+        }
+
+        /// <inheritdoc/>
+        public async Task<IEnumerable<InstrumentDTO>> GetInstrumentsAsync()
+        {
+            var instruments = await repositorySerice.GetInstruments();
+            var response = instruments.Select(MapInstrumentToDTO).ToList();
+            return response;
+        }
+
+        private InstrumentDTO MapInstrumentToDTO(InstrumentEntity instrument)
+        {
+            return new InstrumentDTO(
+                instrument.DeviceId,
+                instrument.DeviceName,
+                instrument.Channel,
+                instrument.SoftwareVersion,
+                instrument.IsOperational);
+
         }
     }
 }
