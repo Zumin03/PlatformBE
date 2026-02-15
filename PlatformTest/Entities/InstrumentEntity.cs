@@ -4,35 +4,30 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlatformTest.Entities
 {
-    public class InstrumentEntity(
-        string deviceId,
-        string deviceName,
-        string channel,
-        string unit,
-        string softwareVersion,
-        string port,
-        InstrumentState instrumentState)
+    public class InstrumentEntity
     {
         [Key]
         [Column("device_id")]
-        public string DeviceId { get; set; } = deviceId;
+        public string DeviceId { get; set; } = null!;
 
         [Column("device_name")]
-        public string DeviceName { get; set; } = deviceName;
+        public string DeviceName { get; set; } = null!;
 
         [Column("channel")]
-        public string Channel { get; set; } = channel;
+        public string Channel { get; set; } = null!;
 
         [Column("unit")]
-        public string Unit { get; set; } = unit;
+        public string Unit { get; set; } = null!;
 
         [Column("software_version")]
-        public string SoftwareVersion { get; set; } = softwareVersion;
+        public string SoftwareVersion { get; set; } = null!;
 
         [Column("comport")]
-        public string Port { get; set; } = port;
+        public string Port { get; set; } = null!;
 
         [Column("state")]
-        public InstrumentState InstrumentState { get; set; } = instrumentState;
+        public InstrumentState InstrumentState { get; set; }
+
+        protected InstrumentEntity() { }
     }
 }

@@ -39,6 +39,7 @@ namespace PlatformTest.Service
             return MapMeasurementToDTO(result);
         }
 
+        /// <inheritdoc/>
         public async Task<IEnumerable<MeasurementDTO>> GetMeasurementsAsync()
         {
             var measurements = await repositoryService.GetMeasurements();

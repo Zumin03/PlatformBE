@@ -93,6 +93,7 @@ namespace PlatformTest.Service
             return instrumentEntity; 
         }
 
+        /// <inheritdoc/>
         public SelfTestDTO DeserializeSelfTest(string selfTestJSON)
         {
             logger.LogInformation("Deserializing self test JSON.");
@@ -106,6 +107,7 @@ namespace PlatformTest.Service
             return selfTestDTO;
         }
 
+        /// <inheritdoc/>
         public InstrumentState GetSelfTestResult(string selfTestJSON)
         {
             var selfTest = DeserializeSelfTest(selfTestJSON);

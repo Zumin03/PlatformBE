@@ -12,7 +12,7 @@ namespace PlatformTest.Entities
 
         [Column("deviceId")]
         [JsonProperty("deviceId")]
-        public string DeviceId { get; set; }
+        public string DeviceId { get; set; } = null!;
 
         [Column("value")]
         [JsonProperty("value")]

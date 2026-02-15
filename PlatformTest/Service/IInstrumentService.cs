@@ -1,4 +1,5 @@
 ﻿using PlatformTest.Entities;
+using PlatformTest.Enums;
 using PlatformTest.Model;
 
 namespace PlatformTest.Service
@@ -29,5 +30,12 @@ namespace PlatformTest.Service
         /// </summary>
         /// <returns></returns>
         Task<IEnumerable<InstrumentDTO>> GetInstrumentsAsync();
+        
+        /// <summary>
+        /// After the deserialization of the self test json returns the state of the instrument.
+        /// </summary>
+        /// <param name="selfTestJSON">The self test json received from the instrument.</param>
+        /// <returns>Returns an <see cref="InstrumentState"/> representing the state of the instrument.</returns>
+        InstrumentState GetSelfTestResult(string selfTestJSON);
     }
 }
