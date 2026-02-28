@@ -21,12 +21,12 @@ namespace PlatformTest.Controllers
             this.logger = logger;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Post([FromBody] MeasurementRequestDTO request)
+        [HttpPost("{id}/measure")]
+        public async Task<ActionResult<MeasurementDTO>> Post(string id)
         {
             try
             {
-                var result = await measurementService.RunMeasurementAsync(request.DeviceId);
+                var result = await measurementService.RunMeasurementAsync(id);
                 return Ok(result);
             }
             catch (InstrumentNotFoundException ex)
