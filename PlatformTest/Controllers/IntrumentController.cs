@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PlatformTest.Exceptions;
 using PlatformTest.Model;
 using PlatformTest.Service;
+using System.Diagnostics.Metrics;
 
 namespace PlatformTest.Controllers
 {
@@ -24,6 +26,20 @@ namespace PlatformTest.Controllers
         {
             var instruments = await instrumentService.GetInstrumentsAsync();
             return Ok(instruments);
+        }
+
+        [HttpPost("{id}/self-test")]
+        public async Task<ActionResult<InstrumentDTO>> SelfTest(string id)
+        {
+            try
+            {
+                var result = await instrumentService.RunSelfTest(id);
+                return Ok(result);
+            }
+            catch (InstrumentNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }

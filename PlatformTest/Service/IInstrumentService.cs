@@ -37,5 +37,12 @@ namespace PlatformTest.Service
         /// <param name="selfTestJSON">The self test json received from the instrument.</param>
         /// <returns>Returns an <see cref="InstrumentState"/> representing the state of the instrument.</returns>
         InstrumentState GetSelfTestResult(string selfTestJSON);
+
+        /// <summary>
+        /// Runs a self test on a specific instrument.
+        /// </summary>
+        /// <param name="id">The id of the instrument to run the self test on.</param>
+        /// <returns>Returns a <see cref="InstrumentDTO"/> with the updated state.</returns>
+        Task<InstrumentDTO> RunSelfTest(string id);
     }
 }

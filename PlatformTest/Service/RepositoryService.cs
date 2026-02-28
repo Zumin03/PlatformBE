@@ -25,9 +25,9 @@ namespace PlatformTest.Service
         /// <inheritdoc/>
         public async Task RegisterInstrument(InstrumentEntity instrument)
         {
-            var exist = await db.instruments.AnyAsync(i => i.DeviceId == instrument.DeviceId);
+            var instrumentExist = await db.instruments.AnyAsync(i => i.DeviceId == instrument.DeviceId);
 
-            if (!exist)
+            if (!instrumentExist)
             {
                 logger.LogInformation($"Adding Instrument with device id: {instrument.DeviceId} to the database.");
                 db.instruments.Add(instrument);     

@@ -129,6 +129,24 @@ namespace PlatformTest.Service
             return response;
         }
 
+        public async Task<InstrumentDTO> RunSelfTest(string id)
+        {
+            logger.LogInformation($"Running self test on instrument with id: {id}");
+            var instrument = await repositorySerice.GetInstrumentById(id);
+            using var serialPort = new SerialPort(instrument.Port, defaultBaudRate);
+            serialPort.Encoding = System.Text.Encoding.UTF8;
+            serialPort.Open();
+            serialPort.Write("SELFTEST");
+
+            var selfTestResponse = serialPort.ReadLine()?.Trim();
+            serialPort.Close();
+            instrument.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
+
+            await repositorySerice.RegisterInstrument(instrument);
+
+            return MapInstrumentToDTO(instrument);
+        }
+
         private InstrumentDTO MapInstrumentToDTO(InstrumentEntity instrument)
         {
             return new InstrumentDTO(
