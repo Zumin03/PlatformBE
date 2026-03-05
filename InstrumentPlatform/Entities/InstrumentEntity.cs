@@ -1,8 +1,8 @@
-﻿using PlatformTest.Enums;
+﻿using InstrumentPlatform.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace PlatformTest.Entities
+namespace InstrumentPlatform.Entities
 {
     public class InstrumentEntity
     {

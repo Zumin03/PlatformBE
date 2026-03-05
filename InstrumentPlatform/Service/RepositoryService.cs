@@ -1,12 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Npgsql;
-using PlatformTest.Data;
-using PlatformTest.Entities;
-using PlatformTest.Enums;
-using PlatformTest.Exceptions;
-using PlatformTest.Model;
+﻿using InstrumentPlatform.Entities;
+using Microsoft.EntityFrameworkCore;
+using InstrumentPlatform.Enums;
+using InstrumentPlatform.Exceptions;
+using InstrumentPlatform.Data;
+using InstrumentPlatform.Service;
 
-namespace PlatformTest.Service
+namespace InstrumentPlatform.Core.Service
 {
     public class RepositoryService : IRepositoryService
     {

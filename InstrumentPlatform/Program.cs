@@ -1,7 +1,7 @@
+using InstrumentPlatform.Data;
+using InstrumentPlatform.Core.Service;
 using Microsoft.EntityFrameworkCore;
-using PlatformTest.Data;
-using PlatformTest.Service;
-using System;
+using InstrumentPlatform.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 

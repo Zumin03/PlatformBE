@@ -1,6 +1,4 @@
-﻿using PlatformTest.Enums;
-
-namespace PlatformTest.Model
+﻿namespace InstrumentPlatform.Model
 {
     public class InstrumentDTO
     {

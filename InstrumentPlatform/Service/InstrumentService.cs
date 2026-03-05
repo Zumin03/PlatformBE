@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using PlatformTest.Entities;
-using PlatformTest.Enums;
-using PlatformTest.Model;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
+﻿using InstrumentPlatform.Entities;
+using InstrumentPlatform.Enums;
+using InstrumentPlatform.Model;
+using Newtonsoft.Json;
 using System.IO.Ports;
 
-namespace PlatformTest.Service
+namespace InstrumentPlatform.Service
 {
     public class InstrumentService : IInstrumentService
     {

@@ -1,8 +1,8 @@
-﻿using PlatformTest.Entities;
-using PlatformTest.Enums;
-using PlatformTest.Model;
+﻿using InstrumentPlatform.Entities;
+using InstrumentPlatform.Enums;
+using InstrumentPlatform.Model;
 
-namespace PlatformTest.Service
+namespace InstrumentPlatform.Service
 {
     public interface IInstrumentService
     {

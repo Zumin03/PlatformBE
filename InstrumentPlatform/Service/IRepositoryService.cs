@@ -1,7 +1,6 @@
-﻿using PlatformTest.Entities;
-using PlatformTest.Model;
+﻿using InstrumentPlatform.Entities;
 
-namespace PlatformTest.Service
+namespace InstrumentPlatform.Service
 {
     public interface IRepositoryService
     {

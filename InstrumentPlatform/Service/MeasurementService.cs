@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using PlatformTest.Entities;
-using PlatformTest.Exceptions;
-using PlatformTest.Model;
+﻿using InstrumentPlatform.Entities;
+using InstrumentPlatform.Service;
+using Newtonsoft.Json;
+using InstrumentPlatform.Exceptions;
+using InstrumentPlatform.Model;
 using System.IO.Ports;
 using System.Threading.Channels;
 
-namespace PlatformTest.Service
+namespace InstrumentPlatform.Core.Service
 {
     public class MeasurementService : IMeasurementService
     {

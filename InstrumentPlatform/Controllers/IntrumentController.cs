@@ -1,10 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using PlatformTest.Exceptions;
-using PlatformTest.Model;
-using PlatformTest.Service;
-using System.Diagnostics.Metrics;
+﻿using InstrumentPlatform.Exceptions;
+using InstrumentPlatform.Model;
+using InstrumentPlatform.Service;
+using Microsoft.AspNetCore.Mvc;
 
-namespace PlatformTest.Controllers
+namespace InstrumentPlatform.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

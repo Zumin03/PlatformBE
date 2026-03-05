@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using PlatformTest.Entities;
+﻿using InstrumentPlatform.Entities;
+using Microsoft.EntityFrameworkCore;
 
-namespace PlatformTest.Data
+namespace InstrumentPlatform.Data
 {
     public class AppDbContext : DbContext
     {
@@ -21,6 +21,5 @@ namespace PlatformTest.Data
                 .Property(m => m.Id)
                 .ValueGeneratedOnAdd();
         }
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace PlatformTest.Enums
+namespace InstrumentPlatform.Enums
 {
     public enum InstrumentState
     {

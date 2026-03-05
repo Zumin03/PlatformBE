@@ -1,4 +1,4 @@
-﻿namespace PlatformTest.Model
+﻿namespace InstrumentPlatform.Model
 {
     public class MeasurementDTO
     {

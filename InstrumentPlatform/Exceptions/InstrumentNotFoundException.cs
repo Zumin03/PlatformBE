@@ -1,4 +1,4 @@
-﻿namespace PlatformTest.Exceptions
+﻿namespace InstrumentPlatform.Exceptions
 {
     public class InstrumentNotFoundException : Exception
     {
