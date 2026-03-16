@@ -1,0 +1,23 @@
+services:
+
+  db:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: Nemezajelszo1
+      POSTGRES_USER: boszm
+      POSTGRES_DB: platformdb
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+  # be:
+    # image: mcr.microsoft.com/dotnet/sdk:8.0
+    # restart: always
+    # ports:
+      # - 7108:7108
+    # volumes:
+      # - .\InstrumentPlatform\bin\Debug\net8.0:/app
