@@ -45,8 +45,7 @@ namespace InstrumentPlatform.Service
                         var instrumentEntity = DeserializeInstrument(identificationResponse);
                         instrumentEntity.Port = serialPort.PortName;
 
-                        serialPort.WriteLine("SELFTEST");
-                        var selfTestResponse = serialPort.ReadLine()?.Trim();
+                        var selfTestResponse = RunSelfTestOnPort(serialPort);
 
                         instrumentEntity.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
 
@@ -127,6 +126,7 @@ namespace InstrumentPlatform.Service
             return response;
         }
 
+        /// <inheritdoc/>
         public async Task<InstrumentDTO> RunSelfTest(string id)
         {
             logger.LogInformation($"Running self test on instrument with id: {id}");
@@ -134,9 +134,8 @@ namespace InstrumentPlatform.Service
             using var serialPort = new SerialPort(instrument.Port, defaultBaudRate);
             serialPort.Encoding = System.Text.Encoding.UTF8;
             serialPort.Open();
-            serialPort.Write("SELFTEST");
 
-            var selfTestResponse = serialPort.ReadLine()?.Trim();
+            var selfTestResponse = RunSelfTestOnPort(serialPort);
             serialPort.Close();
             instrument.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
 
@@ -154,6 +153,15 @@ namespace InstrumentPlatform.Service
                 instrument.SoftwareVersion,
                 instrument.InstrumentState.ToString());
 
+        }
+
+        private string? RunSelfTestOnPort(SerialPort serial)
+        {
+            logger.LogInformation($"Requesting self test on serial port: {serial.PortName}");
+            serial.WriteLine("SELFTEST");
+            var selfTestResponse = serial.ReadLine()?.Trim();
+
+            return selfTestResponse;
         }
     }
 }
