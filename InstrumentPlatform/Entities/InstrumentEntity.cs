@@ -6,6 +6,24 @@ namespace InstrumentPlatform.Entities
 {
     public class InstrumentEntity
     {
+        public InstrumentEntity(
+            string deviceId,
+            string deviceName,
+            string channel,
+            string unit,
+            string softwareVersion,
+            string port,
+            InstrumentState instrumentState)
+        {
+            this.DeviceId = deviceId;
+            this.DeviceName = deviceName;
+            this.Channel = channel;
+            this.Unit = unit;
+            this.SoftwareVersion = softwareVersion;
+            this.Port = port;
+            this.InstrumentState = instrumentState;
+        }
+
         [Key]
         [Column("device_id")]
         public string DeviceId { get; set; } = null!;

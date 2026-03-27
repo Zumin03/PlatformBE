@@ -44,7 +44,7 @@ namespace InstrumentPlatform.Service
                 var line = serialCommunicationService.SendCommand(InstrumentCommand.Measure, instrument.Port, 9600);
 
                 var result = DeserializeMeasurement(line);
-                await repositoryService.SaveMeasurement(result);
+                result = await repositoryService.SaveMeasurement(result);
 
                 return MapMeasurementToDTO(result);
             }

@@ -149,8 +149,6 @@ namespace InstrumentPlatform.Service
                 await instrumentErrorHandler.HandleCommunicationError(id);
                 throw new InstrumentCommunicationException(id);
             }
-            
-
         }
 
         private InstrumentDTO MapInstrumentToDTO(InstrumentEntity instrument)

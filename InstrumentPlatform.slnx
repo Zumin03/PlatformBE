@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="InstrumentPlatform/InstrumentPlatform.csproj" />
+  <Project Path="IntrumentPlatform.Test/IntrumentPlatform.Test.csproj" Id="a42ed93d-03a6-4962-b23f-2bd4919178f4" />
 </Solution>

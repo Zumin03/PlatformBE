@@ -6,6 +6,20 @@ namespace InstrumentPlatform.Entities
 {
     public class MeasurementEntity
     {
+        public MeasurementEntity(
+            long id,
+            string deviceId,
+            float value,
+            DateTime measuredAt,
+            InstrumentEntity instrument)
+        {
+            this.Id = id;
+            this.DeviceId = deviceId;
+            this.Value = value;
+            this.MeasuredAt = measuredAt;
+            this.Instument = instrument;
+        }
+
         [Key]
         [Column("id")]
         public long Id { get; set; }
