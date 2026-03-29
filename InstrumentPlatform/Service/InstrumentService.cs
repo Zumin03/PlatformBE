@@ -127,6 +127,15 @@ namespace InstrumentPlatform.Service
         }
 
         /// <inheritdoc/>
+        public async Task<InstrumentDTO> GetInstrumentAsync(string id)
+        {
+            var instruement = await repositorySerice.GetInstrumentById(id);
+            var response = MapInstrumentToDTO(instruement);
+
+            return response;
+        }
+
+        /// <inheritdoc/>
         public async Task<InstrumentDTO> RunSelfTest(string id)
         {
             logger.LogInformation($"Running self test on instrument with id: {id}");

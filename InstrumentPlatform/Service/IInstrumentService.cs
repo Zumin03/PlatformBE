@@ -28,9 +28,16 @@ namespace InstrumentPlatform.Service
         /// <summary>
         /// Retrieves all recorded instruments and returns them in DTO format.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A collection of <see cref="InstrumentDTO"/> containing data for all instruments.</returns>
         Task<IEnumerable<InstrumentDTO>> GetInstrumentsAsync();
-        
+
+        /// <summary>
+        /// Retrieves a single instrument with the given instrument id.
+        /// </summary>
+        /// <param name="id">The id of the instrument.</param>
+        /// <returns>Returns an <see cref="InstrumentDTO"/> containing the instrument data.</returns>
+        Task<InstrumentDTO> GetInstrumentAsync(string id);
+
         /// <summary>
         /// After the deserialization of the self test json returns the state of the instrument.
         /// </summary>
