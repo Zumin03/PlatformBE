@@ -1,5 +1,7 @@
 ﻿using InstrumentPlatform.Entities;
 using InstrumentPlatform.Enums;
+using InstrumentPlatform.Exceptions;
+using InstrumentPlatform.Handlers;
 using InstrumentPlatform.Model;
 using Newtonsoft.Json;
 using System.IO.Ports;
@@ -9,17 +11,21 @@ namespace InstrumentPlatform.Service
     public class InstrumentService : IInstrumentService
     {
         private readonly IRepositoryService repositorySerice;
+        private readonly ISerialCommunicationService serialCommunicationService;
+        private readonly IInstrumentErrorHandler instrumentErrorHandler;
         private readonly ILogger<InstrumentService> logger;
-
-        private readonly int defaultTimeout = 1000;
         private readonly int defaultBaudRate = 9600;
 
         public InstrumentService(
             IRepositoryService repositoryService,
-            ILogger<InstrumentService> logger)
+            ISerialCommunicationService serialCommunicationSerice,
+            ILogger<InstrumentService> logger,
+            IInstrumentErrorHandler instrumentErrorHandler)
         {
             this.repositorySerice = repositoryService;
+            this.serialCommunicationService = serialCommunicationSerice;
             this.logger = logger;
+            this.instrumentErrorHandler = instrumentErrorHandler;
         }
 
         /// <inheritdoc/>
@@ -30,48 +36,36 @@ namespace InstrumentPlatform.Service
 
             foreach (var port in activePorts)
             {
-                using var serialPort = new SerialPort(port, defaultBaudRate);
-                serialPort.Encoding = System.Text.Encoding.UTF8;
-                logger.LogInformation($"Searching for instrument on Serial Port: {serialPort.PortName}");
                 try
                 {
-                    serialPort.ReadTimeout = defaultTimeout;
-                    serialPort.Open();
-                    serialPort.WriteLine("IDENTIFY");
-                    var identificationResponse = serialPort.ReadLine()?.Trim();
+                    logger.LogInformation($"Searching for instrument on Serial Port: {port}");
 
-                    if (identificationResponse != null)
-                    {
-                        var instrumentEntity = DeserializeInstrument(identificationResponse);
-                        instrumentEntity.Port = serialPort.PortName;
+                    var identificationResponse = serialCommunicationService.SendCommand(InstrumentCommand.Identify, port, defaultBaudRate, 1000);
 
-                        var selfTestResponse = RunSelfTestOnPort(serialPort);
+                    var instrumentEntity = DeserializeInstrument(identificationResponse);
+                    instrumentEntity.Port = port;
 
-                        instrumentEntity.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
+                    var selfTestResponse = RunSelfTestOnPort(port);
 
-                        await repositorySerice.RegisterInstrument(instrumentEntity);
-                    }
-                    else
-                    {
-                        logger.LogInformation($"Unable to detect instrument on: {serialPort.PortName}");
-                    }
+                    instrumentEntity.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
+
+                    await repositorySerice.RegisterInstrument(instrumentEntity);
                 }
                 catch (TimeoutException)
                 {
-                    logger.LogInformation($"Serial Port {serialPort.PortName} was not responding.");
+                    logger.LogInformation($"Serial Port {port} did not respond.");
                 }
                 catch (UnauthorizedAccessException)
                 {
-                    logger.LogError($"Access to {serialPort.PortName} is denied.");
+                    logger.LogError($"Access to {port} is denied.");
                 }
-                catch (Exception e)
+                catch (FileNotFoundException ex)
                 {
-                    logger.LogError($"Something went wrong:\n\t{e.Message}");
+                    logger.LogError($"Something went wrong:\n\t{ex.Message}");
                 }
-                finally
+                catch (Exception ex)
                 {
-                    logger.LogInformation($"Closing Serial Port {serialPort.PortName}");
-                    serialPort.Close();
+                    logger.LogError($"Something went wrong:\n\t{ex.Message}");
                 }
             }
         }
@@ -140,17 +134,23 @@ namespace InstrumentPlatform.Service
         {
             logger.LogInformation($"Running self test on instrument with id: {id}");
             var instrument = await repositorySerice.GetInstrumentById(id);
-            using var serialPort = new SerialPort(instrument.Port, defaultBaudRate);
-            serialPort.Encoding = System.Text.Encoding.UTF8;
-            serialPort.Open();
 
-            var selfTestResponse = RunSelfTestOnPort(serialPort);
-            serialPort.Close();
-            instrument.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
+            try
+            {
+                var selfTestResponse = RunSelfTestOnPort(instrument.Port);
 
-            await repositorySerice.RegisterInstrument(instrument);
+                instrument.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
 
-            return MapInstrumentToDTO(instrument);
+                await repositorySerice.RegisterInstrument(instrument);
+                return MapInstrumentToDTO(instrument);
+            }
+            catch (FileNotFoundException)
+            {
+                await instrumentErrorHandler.HandleCommunicationError(id);
+                throw new InstrumentCommunicationException(id);
+            }
+            
+
         }
 
         private InstrumentDTO MapInstrumentToDTO(InstrumentEntity instrument)
@@ -164,11 +164,10 @@ namespace InstrumentPlatform.Service
 
         }
 
-        private string? RunSelfTestOnPort(SerialPort serial)
+        private string? RunSelfTestOnPort(string port)
         {
-            logger.LogInformation($"Requesting self test on serial port: {serial.PortName}");
-            serial.WriteLine("SELFTEST");
-            var selfTestResponse = serial.ReadLine()?.Trim();
+            logger.LogInformation($"Requesting self test on serial port: {port}");
+            var selfTestResponse = serialCommunicationService.SendCommand(InstrumentCommand.SelfTest, port, 9600);
 
             return selfTestResponse;
         }

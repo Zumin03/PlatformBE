@@ -3,12 +3,15 @@ using InstrumentPlatform.Core.Service;
 using Microsoft.EntityFrameworkCore;
 using InstrumentPlatform.Service;
 using InstrumentPlatform.Extensions;
+using InstrumentPlatform.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddScoped<IMeasurementService, MeasurementService>();
 builder.Services.AddScoped<IInstrumentService, InstrumentService>();
 builder.Services.AddScoped<IRepositoryService, RepositoryService>();
+builder.Services.AddScoped<ISerialCommunicationService, SerialCommunicationService>();
+builder.Services.AddScoped<IInstrumentErrorHandler, InstrumentErrorHandler>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 

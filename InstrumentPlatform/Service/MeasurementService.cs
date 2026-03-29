@@ -5,20 +5,32 @@ using InstrumentPlatform.Exceptions;
 using InstrumentPlatform.Model;
 using System.IO.Ports;
 using System.Threading.Channels;
+using InstrumentPlatform.Enums;
+using Microsoft.OpenApi.Extensions;
+using InstrumentPlatform.Handlers;
 
-namespace InstrumentPlatform.Core.Service
+namespace InstrumentPlatform.Service
 {
     public class MeasurementService : IMeasurementService
     {
         private readonly IRepositoryService repositoryService;
+        private readonly ISerialCommunicationService serialCommunicationService;
         private readonly ILogger<IMeasurementService> logger;
+        private readonly IInstrumentService instrumentService;
+        private readonly IInstrumentErrorHandler instrumentErrorHandler;
 
         public MeasurementService(
             IRepositoryService repositoryService,
-            ILogger<IMeasurementService> logger)
+            ISerialCommunicationService serialCommunicationService,
+            ILogger<IMeasurementService> logger,
+            IInstrumentService instrumentService,
+            IInstrumentErrorHandler instrumentErrorHandler)
         {
             this.repositoryService = repositoryService;
+            this.serialCommunicationService = serialCommunicationService;
             this.logger = logger;
+            this.instrumentService = instrumentService;
+            this.instrumentErrorHandler = instrumentErrorHandler;
         }
 
         /// <inheritdoc/>
@@ -27,16 +39,20 @@ namespace InstrumentPlatform.Core.Service
             var instrument = await repositoryService.GetInstrumentById(deviceId);
 
             logger.LogInformation($"Starting measurement on device {instrument.DeviceId}");
-            using var serial = new SerialPort(instrument.Port, 9600);
-            serial.Open();
-            serial.WriteLine("MEASURE");
-            var line = serial.ReadLine().Trim();
-            serial.Close();
+            try
+            {
+                var line = serialCommunicationService.SendCommand(InstrumentCommand.Measure, instrument.Port, 9600);
 
-            var result = DeserializeMeasurement(line);
-            await repositoryService.SaveMeasurement(result);
+                var result = DeserializeMeasurement(line);
+                await repositoryService.SaveMeasurement(result);
 
-            return MapMeasurementToDTO(result);
+                return MapMeasurementToDTO(result);
+            }
+            catch (FileNotFoundException)
+            {
+                await instrumentErrorHandler.HandleCommunicationError(deviceId);
+                throw new InstrumentCommunicationException(deviceId);
+            }
         }
 
         /// <inheritdoc/>
