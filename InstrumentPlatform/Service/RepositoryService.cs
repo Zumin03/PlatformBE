@@ -41,6 +41,12 @@ namespace InstrumentPlatform.Core.Service
         }
 
         /// <inheritdoc/>
+        public async Task<bool> IsInstrumentAuthorized(string deviceId)
+        {
+            return await db.authorized.AnyAsync(i => i.DeviceId == deviceId);
+        }
+
+        /// <inheritdoc/>
         public async Task<InstrumentEntity> GetInstrumentById(string deviceId)
         {
             var instrument =

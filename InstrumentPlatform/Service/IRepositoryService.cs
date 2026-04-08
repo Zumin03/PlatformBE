@@ -25,6 +25,13 @@ namespace InstrumentPlatform.Service
         Task<IEnumerable<MeasurementEntity>> GetMeasurements();
 
         /// <summary>
+        /// Checks whether the instrument is authorized in the database.
+        /// </summary>
+        /// <param name="deviceId">The unique device identifier of the instrument.</param>
+        /// <returns>Returns a <see cref="bool"/> indicating whether the instrument is authorized.</returns>
+        Task<bool> IsInstrumentAuthorized(string deviceId);
+
+        /// <summary>
         /// Registers a new Instrument in the database.
         /// </summary>
         /// <param name="instrument">The instrument to register.</param>

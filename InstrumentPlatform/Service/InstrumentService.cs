@@ -44,6 +44,11 @@ namespace InstrumentPlatform.Service
 
                     var instrumentEntity = DeserializeInstrument(identificationResponse);
                     instrumentEntity.Port = port;
+                    var isAuthorized = await repositorySerice.IsInstrumentAuthorized(instrumentEntity.DeviceId);
+                    if (!isAuthorized)
+                    {
+                        throw new InstrumentNotAuthorizedException(instrumentEntity.DeviceId);
+                    }
 
                     var selfTestResponse = RunSelfTestOnPort(port);
 
@@ -62,6 +67,10 @@ namespace InstrumentPlatform.Service
                 catch (FileNotFoundException ex)
                 {
                     logger.LogError($"Something went wrong:\n\t{ex.Message}");
+                }
+                catch (InstrumentNotAuthorizedException ex)
+                {
+                    logger.LogWarning(ex.Message);
                 }
                 catch (Exception ex)
                 {
