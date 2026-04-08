@@ -1,9 +1,9 @@
-using InstrumentPlatform.Data;
 using InstrumentPlatform.Core.Service;
-using Microsoft.EntityFrameworkCore;
-using InstrumentPlatform.Service;
+using InstrumentPlatform.Data;
 using InstrumentPlatform.Extensions;
 using InstrumentPlatform.Handlers;
+using InstrumentPlatform.Service;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
