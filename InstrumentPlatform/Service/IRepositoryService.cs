@@ -36,13 +36,13 @@ namespace InstrumentPlatform.Service
         /// </summary>
         /// <param name="instrument">The instrument to register.</param>
         Task RegisterInstrument(InstrumentEntity instrument);
-        
+
         /// <summary>
         /// Resets the instruments connected and operational fields to default.
         /// </summary>
         /// <returns>Returns a <see cref="Task"/>.</returns>
         Task ResetInstrumentsState();
-        
+
         /// <summary>
         /// Saves a measurement record to the database.
         /// </summary>

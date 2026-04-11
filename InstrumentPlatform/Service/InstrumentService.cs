@@ -18,12 +18,12 @@ namespace InstrumentPlatform.Service
 
         public InstrumentService(
             IRepositoryService repositoryService,
-            ISerialCommunicationService serialCommunicationSerice,
+            ISerialCommunicationService serialCommunicationService,
             ILogger<InstrumentService> logger,
             IInstrumentErrorHandler instrumentErrorHandler)
         {
             this.repositorySerice = repositoryService;
-            this.serialCommunicationService = serialCommunicationSerice;
+            this.serialCommunicationService = serialCommunicationService;
             this.logger = logger;
             this.instrumentErrorHandler = instrumentErrorHandler;
         }
@@ -90,7 +90,7 @@ namespace InstrumentPlatform.Service
                 throw new InvalidOperationException("Deserialization of instrument returned with null.");
             }
 
-            return instrumentEntity; 
+            return instrumentEntity;
         }
 
         /// <inheritdoc/>
@@ -111,7 +111,7 @@ namespace InstrumentPlatform.Service
         public InstrumentState GetSelfTestResult(string selfTestJSON)
         {
             var selfTest = DeserializeSelfTest(selfTestJSON);
-            if(selfTest.SensorState == "OK")
+            if (selfTest.SensorState == "OK")
             {
                 return InstrumentState.Connected;
             }

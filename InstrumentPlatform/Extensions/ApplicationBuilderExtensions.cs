@@ -1,5 +1,4 @@
 ﻿using InstrumentPlatform.Data;
-using InstrumentPlatform.Service;
 using Microsoft.EntityFrameworkCore;
 
 namespace InstrumentPlatform.Extensions

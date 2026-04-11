@@ -1,11 +1,8 @@
-﻿using Castle.Core.Logging;
-using FluentAssertions;
-using InstrumentPlatform.Core.Service;
+﻿using FluentAssertions;
 using InstrumentPlatform.Entities;
 using InstrumentPlatform.Enums;
 using InstrumentPlatform.Exceptions;
 using InstrumentPlatform.Handlers;
-using InstrumentPlatform.Model;
 using InstrumentPlatform.Service;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -138,7 +135,7 @@ namespace IntrumentPlatform.Test
                 Substitute.For<ILogger<MeasurementService>>(),
                 Substitute.For<IInstrumentService>(),
                 instruermentErrorHandlerMock);
-            
+
             // Act + Assert
             await Assert.ThrowsAsync<InstrumentCommunicationException>(() => service.RunMeasurementAsync(deviceId));
 

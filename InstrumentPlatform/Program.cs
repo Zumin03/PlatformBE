@@ -1,4 +1,3 @@
-using InstrumentPlatform.Core.Service;
 using InstrumentPlatform.Data;
 using InstrumentPlatform.Extensions;
 using InstrumentPlatform.Handlers;

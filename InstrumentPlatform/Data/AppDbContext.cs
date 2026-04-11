@@ -1,6 +1,5 @@
 ﻿using InstrumentPlatform.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics.Metrics;
 
 namespace InstrumentPlatform.Data
 {
@@ -11,9 +10,9 @@ namespace InstrumentPlatform.Data
         {
         }
 
-        public DbSet<InstrumentEntity>  instruments { get; set; } = null!;
-        public DbSet<MeasurementEntity> measurements { get; set; } = null!;
-        public DbSet<AuthorizedInstrumentEntity> authorized { get; set; } = null!;
+        public DbSet<InstrumentEntity> Instruments { get; set; } = null!;
+        public DbSet<MeasurementEntity> Measurements { get; set; } = null!;
+        public DbSet<AuthorizedInstrumentEntity> Authorized { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

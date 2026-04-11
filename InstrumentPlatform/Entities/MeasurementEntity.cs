@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InstrumentPlatform.Entities
 {
+    [Table("measurements")]
     public class MeasurementEntity
     {
         public MeasurementEntity(

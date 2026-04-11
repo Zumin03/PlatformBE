@@ -1,12 +1,8 @@
 ﻿using InstrumentPlatform.Entities;
-using InstrumentPlatform.Service;
 using Newtonsoft.Json;
 using InstrumentPlatform.Exceptions;
 using InstrumentPlatform.Model;
-using System.IO.Ports;
-using System.Threading.Channels;
 using InstrumentPlatform.Enums;
-using Microsoft.OpenApi.Extensions;
 using InstrumentPlatform.Handlers;
 
 namespace InstrumentPlatform.Service

@@ -1,16 +1,16 @@
-﻿using InstrumentPlatform.Enums;
-using InstrumentPlatform.Extensions;
-using InstrumentPlatform.Handlers;
-using System.Diagnostics.Metrics;
-using System.IO.Ports;
-
-namespace InstrumentPlatform.Service
+﻿namespace InstrumentPlatform.Service
 {
+    using System.IO.Ports;
+    using InstrumentPlatform.Enums;
+    using InstrumentPlatform.Extensions;
+    using InstrumentPlatform.Handlers;
+
     public class SerialCommunicationService : ISerialCommunicationService
     {
         private readonly ILogger<ISerialCommunicationService> logger;
         private readonly IInstrumentErrorHandler instrumentErrorHandler;
 
+        /// <inheritdoc/>
         public SerialCommunicationService(
             ILogger<ISerialCommunicationService> logger,
             IInstrumentErrorHandler instrumentErrorHandler)

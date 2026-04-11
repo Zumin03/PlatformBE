@@ -12,7 +12,7 @@ namespace InstrumentPlatform.Service
         /// <param name="instrumentJSON">The instrument response to deserialize.</param>
         /// <returns>Return a <see cref="InstrumentEntity"/></returns>
         InstrumentEntity DeserializeInstrument(string instrumentJSON);
-        
+
         /// <summary>
         /// Deserializes instrument self test response JSON files to DTO objects
         /// </summary>

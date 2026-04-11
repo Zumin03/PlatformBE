@@ -3,9 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using InstrumentPlatform.Enums;
 using InstrumentPlatform.Exceptions;
 using InstrumentPlatform.Data;
-using InstrumentPlatform.Service;
 
-namespace InstrumentPlatform.Core.Service
+namespace InstrumentPlatform.Service
 {
     public class RepositoryService : IRepositoryService
     {
@@ -24,17 +23,17 @@ namespace InstrumentPlatform.Core.Service
         /// <inheritdoc/>
         public async Task RegisterInstrument(InstrumentEntity instrument)
         {
-            var instrumentExist = await db.instruments.AnyAsync(i => i.DeviceId == instrument.DeviceId);
+            var instrumentExist = await db.Instruments.AnyAsync(i => i.DeviceId == instrument.DeviceId);
 
             if (!instrumentExist)
             {
                 logger.LogInformation($"Adding Instrument with device id: {instrument.DeviceId} to the database.");
-                db.instruments.Add(instrument);     
+                db.Instruments.Add(instrument);
             }
             else
             {
                 logger.LogInformation($"Updating fields for device id: {instrument.DeviceId}.");
-                db.instruments.Update(instrument);
+                db.Instruments.Update(instrument);
             }
 
             await db.SaveChangesAsync();
@@ -43,14 +42,14 @@ namespace InstrumentPlatform.Core.Service
         /// <inheritdoc/>
         public async Task<bool> IsInstrumentAuthorized(string deviceId)
         {
-            return await db.authorized.AnyAsync(i => i.DeviceId == deviceId);
+            return await db.Authorized.AnyAsync(i => i.DeviceId == deviceId);
         }
 
         /// <inheritdoc/>
         public async Task<InstrumentEntity> GetInstrumentById(string deviceId)
         {
             var instrument =
-                await db.instruments.FirstOrDefaultAsync(i => i.DeviceId == deviceId) ??
+                await db.Instruments.FirstOrDefaultAsync(i => i.DeviceId == deviceId) ??
                 throw new InstrumentNotFoundException(deviceId);
 
             return instrument;
@@ -60,10 +59,9 @@ namespace InstrumentPlatform.Core.Service
         public async Task ResetInstrumentsState()
         {
             logger.LogInformation("Reseting Instruments table to default state");
-            await db.instruments.ExecuteUpdateAsync(setters =>
+            await db.Instruments.ExecuteUpdateAsync(setters =>
                     setters
                     .SetProperty(i => i.InstrumentState, InstrumentState.Disconnected));
-                    
         }
 
         /// <inheritdoc/>
@@ -73,7 +71,7 @@ namespace InstrumentPlatform.Core.Service
             {
                 logger.LogInformation("Saving measurement to the database...");
                 measurement.MeasuredAt = GenerateTimestamp();
-                db.measurements.Add(measurement);
+                db.Measurements.Add(measurement);
                 await db.SaveChangesAsync();
                 logger.LogInformation($"Saved measurement with id: {measurement.Id}");
                 return measurement;
@@ -82,7 +80,7 @@ namespace InstrumentPlatform.Core.Service
             {
                 logger.LogError(ex.Message);
                 throw;
-            }  
+            }
         }
 
         /// <inheritdoc/>
@@ -91,7 +89,7 @@ namespace InstrumentPlatform.Core.Service
             logger.LogInformation("Getting measurements from the database...");
             try
             {
-                IEnumerable<MeasurementEntity> measurements = await db.measurements.Include(m => m.Instument).ToListAsync();
+                IEnumerable<MeasurementEntity> measurements = await db.Measurements.Include(m => m.Instument).ToListAsync();
                 return measurements;
             }
             catch (Exception ex)
@@ -107,7 +105,7 @@ namespace InstrumentPlatform.Core.Service
             logger.LogInformation("Getting instruments from the database...");
             try
             {
-                IEnumerable<InstrumentEntity> instruments = await db.instruments.ToListAsync();
+                IEnumerable<InstrumentEntity> instruments = await db.Instruments.ToListAsync();
                 return instruments;
             }
             catch (Exception ex)
@@ -117,7 +115,7 @@ namespace InstrumentPlatform.Core.Service
             }
         }
 
-        private DateTime GenerateTimestamp()
+        private static DateTime GenerateTimestamp()
         {
             var dateTime = DateTime.UtcNow;
             dateTime = new DateTime(
