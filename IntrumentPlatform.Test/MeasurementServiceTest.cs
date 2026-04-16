@@ -98,6 +98,7 @@ namespace IntrumentPlatform.Test
             var result = results.Single();
 
             result.DeviceName.Should().Be("test_instrument");
+            result.DeviceId.Should().Be("test0");
             result.Value.Should().Be(10.5f);
             result.Unit.Should().Be("K");
             result.Channel.Should().Be("temperature");

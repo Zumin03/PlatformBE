@@ -4,12 +4,14 @@
     {
         public MeasurementDTO(
             string deviceName,
+            string deviceId,
             string channel,
             float value,
             string unit,
             DateTime measuredAt)
         {
             DeviceName = deviceName;
+            DeviceId = deviceId;
             Channel = channel;
             Value = value;
             Unit = unit;
@@ -17,6 +19,7 @@
         }
 
         public string DeviceName { get; set; }
+        public string DeviceId { get; set; }
 
         public string Channel { get; set; }
 

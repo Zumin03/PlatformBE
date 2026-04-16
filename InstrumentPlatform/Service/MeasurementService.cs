@@ -77,6 +77,7 @@ namespace InstrumentPlatform.Service
         {
             return new MeasurementDTO(
                 measurement.Instument.DeviceName,
+                measurement.Instument.DeviceId,
                 measurement.Instument.Channel,
                 measurement.Value,
                 measurement.Instument.Unit,
