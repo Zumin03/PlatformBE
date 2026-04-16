@@ -45,7 +45,13 @@ namespace InstrumentPlatform.Controllers
             }
             catch (InstrumentNotFoundException ex)
             {
+                logger.LogWarning(ex.Message);
                 return NotFound(ex.Message);
+            }
+            catch (InstrumentCommunicationException ex)
+            {
+                logger.LogWarning(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
     }
