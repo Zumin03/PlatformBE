@@ -167,7 +167,8 @@ namespace InstrumentPlatform.Service
                 instrument.DeviceName,
                 instrument.Channel,
                 instrument.SoftwareVersion,
-                instrument.InstrumentState.ToString());
+                instrument.InstrumentState.ToString(),
+                instrument.Unit);
 
         }
 
