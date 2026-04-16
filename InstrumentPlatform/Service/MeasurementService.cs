@@ -34,9 +34,14 @@ namespace InstrumentPlatform.Service
         {
             var instrument = await repositoryService.GetInstrumentById(deviceId);
 
-            logger.LogInformation($"Starting measurement on device {instrument.DeviceId}");
             try
             {
+                logger.LogInformation($"Starting measurement on device {instrument.DeviceId}");
+                if (instrument.InstrumentState.Equals(InstrumentState.Faulted))
+                {
+                    throw new InstrumentFaultException(instrument.DeviceId);
+                }
+
                 var line = serialCommunicationService.SendCommand(InstrumentCommand.Measure, instrument.Port, 9600);
 
                 var result = DeserializeMeasurement(line);

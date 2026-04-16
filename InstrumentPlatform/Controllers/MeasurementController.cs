@@ -38,6 +38,16 @@ namespace InstrumentPlatform.Controllers
                 logger.LogWarning(ex.Message);
                 return BadRequest(ex.Message);
             }
+            catch (InstrumentFaultException ex)
+            {
+                logger.LogWarning(ex.Message);
+                return BadRequest(ex.Message);
+            }
+            catch (InstrumentCommunicationException ex)
+            {
+                logger.LogWarning(ex.Message);
+                return NotFound(ex.Message);
+            }
         }
 
         [HttpGet]

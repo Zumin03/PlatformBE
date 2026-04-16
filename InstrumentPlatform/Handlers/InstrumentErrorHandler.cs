@@ -9,7 +9,7 @@ namespace InstrumentPlatform.Handlers
     public class InstrumentErrorHandler : IInstrumentErrorHandler
     {
         private readonly IRepositoryService repositoryService;
-        
+
         public InstrumentErrorHandler(IRepositoryService repositoryService)
         {
             this.repositoryService = repositoryService;
