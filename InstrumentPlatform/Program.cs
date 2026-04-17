@@ -1,6 +1,7 @@
 using InstrumentPlatform.Data;
 using InstrumentPlatform.Extensions;
 using InstrumentPlatform.Handlers;
+using InstrumentPlatform.Options;
 using InstrumentPlatform.Service;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,8 +12,11 @@ builder.Services.AddScoped<IInstrumentService, InstrumentService>();
 builder.Services.AddScoped<IRepositoryService, RepositoryService>();
 builder.Services.AddScoped<ISerialCommunicationService, SerialCommunicationService>();
 builder.Services.AddScoped<IInstrumentErrorHandler, InstrumentErrorHandler>();
+builder.Services.AddScoped<ITimeService, TimeService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.Configure<TimeZoneOptions>(
+    builder.Configuration.GetSection("TimeZone"));
 
 // Add services to the container.
 

@@ -21,8 +21,8 @@ namespace IntrumentPlatform.Test
                 Substitute.For<IRepositoryService>(),
                 Substitute.For<ISerialCommunicationService>(),
                 Substitute.For<ILogger<MeasurementService>>(),
-                Substitute.For<IInstrumentService>(),
-                Substitute.For<IInstrumentErrorHandler>());
+                Substitute.For<IInstrumentErrorHandler>(),
+                Substitute.For<ITimeService>());
 
             var measurementJSON = @"{
             ""deviceId"": ""123"",
@@ -46,8 +46,8 @@ namespace IntrumentPlatform.Test
                 Substitute.For<IRepositoryService>(),
                 Substitute.For<ISerialCommunicationService>(),
                 Substitute.For<ILogger<MeasurementService>>(),
-                Substitute.For<IInstrumentService>(),
-                Substitute.For<IInstrumentErrorHandler>());
+                Substitute.For<IInstrumentErrorHandler>(),
+                Substitute.For<ITimeService>());
 
             var invalidJson = @"{ ""Id"": ""123"", ""Value"": ""NaN"" ";
 
@@ -84,8 +84,8 @@ namespace IntrumentPlatform.Test
                 repositoryMock,
                 Substitute.For<ISerialCommunicationService>(),
                 Substitute.For<ILogger<MeasurementService>>(),
-                Substitute.For<IInstrumentService>(),
-                Substitute.For<IInstrumentErrorHandler>());
+                Substitute.For<IInstrumentErrorHandler>(),
+                Substitute.For<ITimeService>());
 
             // Act
             var results = await service.GetMeasurementsAsync();
@@ -134,8 +134,8 @@ namespace IntrumentPlatform.Test
                 repositoryServiceMock,
                 serialServiceMock,
                 Substitute.For<ILogger<MeasurementService>>(),
-                Substitute.For<IInstrumentService>(),
-                instruermentErrorHandlerMock);
+                instruermentErrorHandlerMock,
+                Substitute.For<ITimeService>());
 
             // Act + Assert
             await Assert.ThrowsAsync<InstrumentCommunicationException>(() => service.RunMeasurementAsync(deviceId));

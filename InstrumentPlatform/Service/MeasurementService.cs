@@ -12,21 +12,21 @@ namespace InstrumentPlatform.Service
         private readonly IRepositoryService repositoryService;
         private readonly ISerialCommunicationService serialCommunicationService;
         private readonly ILogger<IMeasurementService> logger;
-        private readonly IInstrumentService instrumentService;
         private readonly IInstrumentErrorHandler instrumentErrorHandler;
+        private readonly ITimeService timeService;
 
         public MeasurementService(
             IRepositoryService repositoryService,
             ISerialCommunicationService serialCommunicationService,
             ILogger<IMeasurementService> logger,
-            IInstrumentService instrumentService,
-            IInstrumentErrorHandler instrumentErrorHandler)
+            IInstrumentErrorHandler instrumentErrorHandler,
+            ITimeService timeService)
         {
             this.repositoryService = repositoryService;
             this.serialCommunicationService = serialCommunicationService;
             this.logger = logger;
-            this.instrumentService = instrumentService;
             this.instrumentErrorHandler = instrumentErrorHandler;
+            this.timeService = timeService;
         }
 
         /// <inheritdoc/>
@@ -81,7 +81,7 @@ namespace InstrumentPlatform.Service
                 measurement.Instument.Channel,
                 measurement.Value,
                 measurement.Instument.Unit,
-                measurement.MeasuredAt);
+                timeService.AdjustTimeToTimezone(measurement.MeasuredAt));
         }
     }
 }

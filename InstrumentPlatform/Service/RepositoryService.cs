@@ -9,14 +9,17 @@ namespace InstrumentPlatform.Service
     public class RepositoryService : IRepositoryService
     {
         private readonly ILogger<IRepositoryService> logger;
+        private readonly ITimeService timeService;
         private readonly AppDbContext db;
 
         public RepositoryService(
             ILogger<IRepositoryService> logger,
-            AppDbContext _db)
+            AppDbContext _db,
+            ITimeService timeService)
         {
             this.logger = logger;
             this.db = _db;
+            this.timeService = timeService;
         }
 
 
@@ -70,7 +73,7 @@ namespace InstrumentPlatform.Service
             try
             {
                 logger.LogInformation("Saving measurement to the database...");
-                measurement.MeasuredAt = GenerateTimestamp();
+                measurement.MeasuredAt = timeService.GenerateUtcTimestamp();
                 db.Measurements.Add(measurement);
                 await db.SaveChangesAsync();
                 logger.LogInformation($"Saved measurement with id: {measurement.Id}");
@@ -114,16 +117,5 @@ namespace InstrumentPlatform.Service
                 throw;
             }
         }
-
-        private static DateTime GenerateTimestamp()
-        {
-            var dateTime = DateTime.UtcNow;
-            dateTime = new DateTime(
-                dateTime.Ticks - (dateTime.Ticks % TimeSpan.TicksPerSecond),
-                dateTime.Kind);
-
-            return dateTime;
-        }
-
     }
 }
