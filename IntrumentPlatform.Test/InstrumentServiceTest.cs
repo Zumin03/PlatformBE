@@ -23,13 +23,12 @@ namespace IntrumentPlatform.Test
                 Substitute.For<IInstrumentErrorHandler>());
 
             var json = @"{
-                ""DeviceId"": ""dev1"",
-                ""DeviceName"": ""TestDevice"",
-                ""Channel"": ""temperature"",
-                ""Unit"": ""K"",
-                ""SoftwareVersion"": ""1.0"",
-                ""Port"": ""COM1"",
-                ""InstrumentState"": 0
+                ""instrumentId"": ""dev1"",
+                ""instrumentName"": ""TestDevice"",
+                ""channel"": ""temperature"",
+                ""unit"": ""K"",
+                ""softwareVersion"": ""1.0"",
+                ""port"": ""COM1"",
             }";
 
             // Act
@@ -37,13 +36,13 @@ namespace IntrumentPlatform.Test
 
             // Assert
             result.Should().NotBeNull();
-            result.DeviceId.Should().Be("dev1");
-            result.DeviceName.Should().Be("TestDevice");
+            result.Id.Should().Be("dev1");
+            result.Name.Should().Be("TestDevice");
             result.Channel.Should().Be("temperature");
             result.Unit.Should().Be("K");
             result.SoftwareVersion.Should().Be("1.0");
             result.Port.Should().Be("COM1");
-            result.InstrumentState.Should().Be(InstrumentState.Connected);
+            result.State.Should().Be(InstrumentState.Connected);
         }
 
         [Fact]
@@ -132,22 +131,22 @@ namespace IntrumentPlatform.Test
             var instruments = new List<InstrumentEntity>
             {
                 new InstrumentEntity(
-                    deviceId: "dev1",
-                    deviceName: "Device 1",
+                    id: "dev1",
+                    name: "Device 1",
                     channel: "temperature",
                     unit: "K",
                     softwareVersion: "1.0",
                     port: "COM1",
-                    instrumentState: InstrumentState.Connected),
+                    state: InstrumentState.Connected),
 
                 new InstrumentEntity(
-                    deviceId: "dev2",
-                    deviceName: "Device 2",
+                    id: "dev2",
+                    name: "Device 2",
                     channel: "pressure",
                     unit: "Pa",
                     softwareVersion: "1.1",
                     port: "COM2",
-                    instrumentState: InstrumentState.Faulted)
+                    state: InstrumentState.Faulted)
             };
 
             repositoryMock.GetInstruments().Returns(instruments);
@@ -186,13 +185,13 @@ namespace IntrumentPlatform.Test
             var repositoryMock = Substitute.For<IRepositoryService>();
 
             var instrument = new InstrumentEntity(
-                deviceId: "dev1",
-                deviceName: "Device 1",
+                id: "dev1",
+                name: "Device 1",
                 channel: "temperature",
                 unit: "K",
                 softwareVersion: "1.0",
                 port: "COM1",
-                instrumentState: InstrumentState.Connected);
+                state: InstrumentState.Connected);
 
 
             repositoryMock.GetInstrumentById(Arg.Any<string>()).Returns(instrument);
@@ -226,13 +225,13 @@ namespace IntrumentPlatform.Test
             var serialCommunicationServiceMock = Substitute.For<ISerialCommunicationService>();
 
             var instrument = new InstrumentEntity(
-                deviceId: "dev1",
-                deviceName: "Device 1",
+                id: "dev1",
+                name: "Device 1",
                 channel: "temperature",
                 unit: "K",
                 softwareVersion: "1.0",
                 port: "COM1",
-                instrumentState: InstrumentState.Connected);
+                state: InstrumentState.Connected);
 
             repositoryMock.GetInstrumentById(Arg.Any<string>()).Returns(instrument);
             serialCommunicationServiceMock
@@ -276,13 +275,13 @@ namespace IntrumentPlatform.Test
             var serialCommunicationServiceMock = Substitute.For<ISerialCommunicationService>();
 
             var instrument = new InstrumentEntity(
-                deviceId: "dev1",
-                deviceName: "Device 1",
+                id: "dev1",
+                name: "Device 1",
                 channel: "temperature",
                 unit: "K",
                 softwareVersion: "1.0",
                 port: "COM1",
-                instrumentState: InstrumentState.Connected);
+                state: InstrumentState.Connected);
 
             repositoryMock.GetInstrumentById(Arg.Any<string>()).Returns(instrument);
             serialCommunicationServiceMock

@@ -26,16 +26,16 @@ namespace InstrumentPlatform.Service
         /// <inheritdoc/>
         public async Task RegisterInstrument(InstrumentEntity instrument)
         {
-            var instrumentExist = await db.Instruments.AnyAsync(i => i.DeviceId == instrument.DeviceId);
+            var instrumentExist = await db.Instruments.AnyAsync(i => i.Id == instrument.Id);
 
             if (!instrumentExist)
             {
-                logger.LogInformation($"Adding Instrument with device id: {instrument.DeviceId} to the database.");
+                logger.LogInformation($"Adding Instrument with device id: {instrument.Id} to the database.");
                 db.Instruments.Add(instrument);
             }
             else
             {
-                logger.LogInformation($"Updating fields for device id: {instrument.DeviceId}.");
+                logger.LogInformation($"Updating fields for device id: {instrument.Id}.");
                 db.Instruments.Update(instrument);
             }
 
@@ -45,14 +45,14 @@ namespace InstrumentPlatform.Service
         /// <inheritdoc/>
         public async Task<bool> IsInstrumentAuthorized(string deviceId)
         {
-            return await db.Authorized.AnyAsync(i => i.DeviceId == deviceId);
+            return await db.Authorized.AnyAsync(i => i.InstrumentId == deviceId);
         }
 
         /// <inheritdoc/>
         public async Task<InstrumentEntity> GetInstrumentById(string deviceId)
         {
             var instrument =
-                await db.Instruments.FirstOrDefaultAsync(i => i.DeviceId == deviceId) ??
+                await db.Instruments.FirstOrDefaultAsync(i => i.Id == deviceId) ??
                 throw new InstrumentNotFoundException(deviceId);
 
             return instrument;
@@ -64,7 +64,7 @@ namespace InstrumentPlatform.Service
             logger.LogInformation("Reseting Instruments table to default state");
             await db.Instruments.ExecuteUpdateAsync(setters =>
                     setters
-                    .SetProperty(i => i.InstrumentState, InstrumentState.Disconnected));
+                    .SetProperty(i => i.State, InstrumentState.Disconnected));
         }
 
         /// <inheritdoc/>
@@ -92,7 +92,7 @@ namespace InstrumentPlatform.Service
             logger.LogInformation("Getting measurements from the database...");
             try
             {
-                IEnumerable<MeasurementEntity> measurements = await db.Measurements.Include(m => m.Instument).ToListAsync();
+                IEnumerable<MeasurementEntity> measurements = await db.Measurements.Include(m => m.Instrument).ToListAsync();
                 return measurements;
             }
             catch (Exception ex)

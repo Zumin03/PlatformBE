@@ -44,15 +44,15 @@ namespace InstrumentPlatform.Service
 
                     var instrumentEntity = DeserializeInstrument(identificationResponse);
                     instrumentEntity.Port = port;
-                    var isAuthorized = await repositorySerice.IsInstrumentAuthorized(instrumentEntity.DeviceId);
+                    var isAuthorized = await repositorySerice.IsInstrumentAuthorized(instrumentEntity.Id);
                     if (!isAuthorized)
                     {
-                        throw new InstrumentNotAuthorizedException(instrumentEntity.DeviceId);
+                        throw new InstrumentNotAuthorizedException(instrumentEntity.Id);
                     }
 
                     var selfTestResponse = RunSelfTestOnPort(port);
 
-                    instrumentEntity.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
+                    instrumentEntity.State = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
 
                     await repositorySerice.RegisterInstrument(instrumentEntity);
                 }
@@ -148,7 +148,7 @@ namespace InstrumentPlatform.Service
             {
                 var selfTestResponse = RunSelfTestOnPort(instrument.Port);
 
-                instrument.InstrumentState = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
+                instrument.State = selfTestResponse != null ? GetSelfTestResult(selfTestResponse) : InstrumentState.Faulted;
 
                 await repositorySerice.RegisterInstrument(instrument);
                 return MapInstrumentToDTO(instrument);
@@ -163,11 +163,11 @@ namespace InstrumentPlatform.Service
         private InstrumentDTO MapInstrumentToDTO(InstrumentEntity instrument)
         {
             return new InstrumentDTO(
-                instrument.DeviceId,
-                instrument.DeviceName,
+                instrument.Id,
+                instrument.Name,
                 instrument.Channel,
                 instrument.SoftwareVersion,
-                instrument.InstrumentState.ToString(),
+                instrument.State.ToString(),
                 instrument.Unit);
 
         }

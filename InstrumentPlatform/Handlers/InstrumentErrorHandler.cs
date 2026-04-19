@@ -19,10 +19,10 @@ namespace InstrumentPlatform.Handlers
         public async Task<string> HandleCommunicationError(string deviceId)
         {
             var instrument = await repositoryService.GetInstrumentById(deviceId);
-            instrument.InstrumentState = InstrumentState.Faulted;
+            instrument.State = InstrumentState.Faulted;
             await repositoryService.RegisterInstrument(instrument);
 
-            return instrument.DeviceId;
+            return instrument.Id;
         }
     }
 }

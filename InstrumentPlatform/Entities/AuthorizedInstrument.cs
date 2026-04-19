@@ -3,8 +3,9 @@
 namespace InstrumentPlatform.Entities
 {
     [Table("authorized")]
-    public class AuthorizedInstrumentEntity
+    public class AuthorizedInstrument
     {
-        public string DeviceId { get; set; } = null!;
+        [Column("instrument_id")]
+        public string InstrumentId { get; set; } = null!;
     }
 }

@@ -15,6 +15,7 @@ builder.Services.AddScoped<IInstrumentErrorHandler, InstrumentErrorHandler>();
 builder.Services.AddScoped<ITimeService, TimeService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.Configure<TimeZoneOptions>(
     builder.Configuration.GetSection("TimeZone"));
 

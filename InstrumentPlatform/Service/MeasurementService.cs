@@ -36,10 +36,10 @@ namespace InstrumentPlatform.Service
 
             try
             {
-                logger.LogInformation($"Starting measurement on device {instrument.DeviceId}");
-                if (instrument.InstrumentState.Equals(InstrumentState.Faulted))
+                logger.LogInformation($"Starting measurement on device {instrument.Id}");
+                if (instrument.State.Equals(InstrumentState.Faulted))
                 {
-                    throw new InstrumentFaultException(instrument.DeviceId);
+                    throw new InstrumentFaultException(instrument.Id);
                 }
 
                 var line = serialCommunicationService.SendCommand(InstrumentCommand.Measure, instrument.Port, 9600);
@@ -76,11 +76,11 @@ namespace InstrumentPlatform.Service
         private MeasurementDTO MapMeasurementToDTO(MeasurementEntity measurement)
         {
             return new MeasurementDTO(
-                measurement.Instument.DeviceName,
-                measurement.Instument.DeviceId,
-                measurement.Instument.Channel,
+                measurement.Instrument.Name,
+                measurement.Instrument.Id,
+                measurement.Instrument.Channel,
                 measurement.Value,
-                measurement.Instument.Unit,
+                measurement.Instrument.Unit,
                 timeService.AdjustTimeToTimezone(measurement.MeasuredAt));
         }
     }

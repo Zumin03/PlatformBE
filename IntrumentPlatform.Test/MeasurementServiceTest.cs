@@ -25,8 +25,8 @@ namespace IntrumentPlatform.Test
                 Substitute.For<ITimeService>());
 
             var measurementJSON = @"{
-            ""deviceId"": ""123"",
-            ""Value"": 32.5
+            ""instrumentId"": ""123"",
+            ""value"": 32.5
             }";
 
             // Act
@@ -34,7 +34,7 @@ namespace IntrumentPlatform.Test
 
             // Assert
             result.Should().NotBeNull();
-            result.DeviceId.Should().Be("123");
+            result.InstrumentId.Should().Be("123");
             result.Value.Should().Be(32.5f);
         }
 
@@ -64,17 +64,17 @@ namespace IntrumentPlatform.Test
             var repositoryMock = Substitute.For<IRepositoryService>();
 
             var instrument = new InstrumentEntity(
-                    deviceId: "test0",
-                    deviceName: "test_instrument",
+                    id: "test0",
+                    name: "test_instrument",
                     channel: "temperature",
                     unit: "K",
                     softwareVersion: "1.0",
                     port: "COM0",
-                    instrumentState: InstrumentState.Connected);
+                    state: InstrumentState.Connected);
 
             IEnumerable<MeasurementEntity> measurement = [new MeasurementEntity(
                 id: 123,
-                deviceId: "test0",
+                instrumentId: "test0",
                 value: 10.5f,
                 measuredAt: DateTime.UtcNow,
                 instrument: instrument)];
@@ -114,13 +114,13 @@ namespace IntrumentPlatform.Test
             var deviceId = "testId";
 
             var instrument = new InstrumentEntity(
-                    deviceId: deviceId,
-                    deviceName: "test_instrument",
+                    id: deviceId,
+                    name: "test_instrument",
                     channel: "temperature",
                     unit: "K",
                     softwareVersion: "1.0",
                     port: "COM0",
-                    instrumentState: InstrumentState.Connected);
+                    state: InstrumentState.Connected);
 
             repositoryServiceMock.GetInstrumentById(deviceId).Returns(instrument);
 

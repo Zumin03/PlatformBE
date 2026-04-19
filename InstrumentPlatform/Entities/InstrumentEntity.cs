@@ -1,4 +1,5 @@
 ﻿using InstrumentPlatform.Enums;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -8,29 +9,31 @@ namespace InstrumentPlatform.Entities
     public class InstrumentEntity
     {
         public InstrumentEntity(
-            string deviceId,
-            string deviceName,
+            string id,
+            string name,
             string channel,
             string unit,
             string softwareVersion,
             string port,
-            InstrumentState instrumentState)
+            InstrumentState state)
         {
-            this.DeviceId = deviceId;
-            this.DeviceName = deviceName;
+            this.Id = id;
+            this.Name = name;
             this.Channel = channel;
             this.Unit = unit;
             this.SoftwareVersion = softwareVersion;
             this.Port = port;
-            this.InstrumentState = instrumentState;
+            this.State = state;
         }
 
         [Key]
-        [Column("device_id")]
-        public string DeviceId { get; set; } = null!;
+        [Column("id")]
+        [JsonProperty("instrumentId")]
+        public string Id { get; set; } = null!;
 
-        [Column("device_name")]
-        public string DeviceName { get; set; } = null!;
+        [Column("name")]
+        [JsonProperty("instrumentName")]
+        public string Name { get; set; } = null!;
 
         [Column("channel")]
         public string Channel { get; set; } = null!;
@@ -41,11 +44,11 @@ namespace InstrumentPlatform.Entities
         [Column("software_version")]
         public string SoftwareVersion { get; set; } = null!;
 
-        [Column("comport")]
+        [Column("port")]
         public string Port { get; set; } = null!;
 
         [Column("state")]
-        public InstrumentState InstrumentState { get; set; }
+        public InstrumentState State { get; set; }
 
         protected InstrumentEntity() { }
     }

@@ -12,7 +12,7 @@ namespace InstrumentPlatform.Data
 
         public DbSet<InstrumentEntity> Instruments { get; set; } = null!;
         public DbSet<MeasurementEntity> Measurements { get; set; } = null!;
-        public DbSet<AuthorizedInstrumentEntity> Authorized { get; set; } = null!;
+        public DbSet<AuthorizedInstrument> Authorized { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,22 +22,22 @@ namespace InstrumentPlatform.Data
                 .Property(m => m.Id)
                 .ValueGeneratedOnAdd();
 
-            modelBuilder.Entity<AuthorizedInstrumentEntity>()
-                .HasKey(a => a.DeviceId);
+            modelBuilder.Entity<AuthorizedInstrument>()
+                .HasKey(a => a.InstrumentId);
 
 
             modelBuilder.Entity<InstrumentEntity>()
-                .HasKey(i => i.DeviceId);
+                .HasKey(i => i.Id);
 
             modelBuilder.Entity<InstrumentEntity>()
-                .HasOne<AuthorizedInstrumentEntity>()
+                .HasOne<AuthorizedInstrument>()
                 .WithMany()
-                .HasForeignKey(i => i.DeviceId)
+                .HasForeignKey(i => i.Id)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<AuthorizedInstrumentEntity>().HasData(
-                new AuthorizedInstrumentEntity { DeviceId = "TC-00000" },
-                new AuthorizedInstrumentEntity { DeviceId = "H2-00000" }
+            modelBuilder.Entity<AuthorizedInstrument>().HasData(
+                new AuthorizedInstrument { InstrumentId = "TC-00000" },
+                new AuthorizedInstrument { InstrumentId = "H2-00000" }
             );
         }
     }

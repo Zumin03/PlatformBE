@@ -9,35 +9,35 @@ namespace InstrumentPlatform.Entities
     {
         public MeasurementEntity(
             long id,
-            string deviceId,
+            string instrumentId,
             float value,
             DateTime measuredAt,
             InstrumentEntity instrument)
         {
             this.Id = id;
-            this.DeviceId = deviceId;
+            this.InstrumentId = instrumentId;
             this.Value = value;
             this.MeasuredAt = measuredAt;
-            this.Instument = instrument;
+            this.Instrument = instrument;
         }
 
         [Key]
         [Column("id")]
         public long Id { get; set; }
 
-        [Column("deviceId")]
-        [JsonProperty("deviceId")]
-        public string DeviceId { get; set; } = null!;
+        [Column("instrument_id")]
+        [JsonProperty("instrumentId")]
+        public string InstrumentId { get; set; } = null!;
 
         [Column("value")]
         [JsonProperty("value")]
         public float Value { get; set; }
 
-        [Column("measuredAt")]
+        [Column("measured_at")]
         public DateTime MeasuredAt { get; set; }
 
-        [ForeignKey(nameof(DeviceId))]
-        public virtual InstrumentEntity Instument { get; set; } = null!;
+        [ForeignKey(nameof(InstrumentId))]
+        public virtual InstrumentEntity Instrument { get; set; } = null!;
 
         protected MeasurementEntity() { }
     }
