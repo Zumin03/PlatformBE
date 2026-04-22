@@ -1,0 +1,38 @@
+.app-wrapper {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.content-frame {
+  padding: 96px 32px 144px;
+}
+
+.page-card {
+  min-height: calc(100vh - 240px);
+  padding: 24px;
+  border-radius: 4px;
+  background: #ffffff;
+  box-shadow: none;
+}
+
+.data-grid-wrapper {
+  height: calc(100vh - 290px);
+  min-height: 420px;
+}
+
+@media (max-width: 899px) {
+  .content-frame {
+    padding: 96px 16px 160px;
+  }
+
+  .page-card {
+    min-height: auto;
+    padding: 16px;
+    border-radius: 4px;
+  }
+
+  .data-grid-wrapper {
+    height: calc(100vh - 330px);
+    min-height: 360px;
+  }
+}

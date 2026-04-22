@@ -10,16 +10,34 @@ services:
       POSTGRES_PASSWORD: Nemezajelszo1
       POSTGRES_USER: boszm
       POSTGRES_DB: platformdb
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U boszm -d platformdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
-  adminer:
-    image: adminer
+  # adminer:
+    # image: adminer
+    # restart: always
+    # ports:
+      # - 8080:8090
+  be:
+    build:
+      context: Backend
     restart: always
     ports:
       - 8080:8080
-  # be:
-    # image: mcr.microsoft.com/dotnet/sdk:8.0
-    # restart: always
-    # ports:
-      # - 7108:7108
-    # volumes:
-      # - .\InstrumentPlatform\bin\Debug\net8.0:/app
+    environment:
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=platformdb;Username=boszm;Password=Nemezajelszo1;Encoding=UTF8"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  fe:
+    build:
+      context: Frontend
+    restart: always
+    ports:
+      - 80:80
+    depends_on:
+      - be
