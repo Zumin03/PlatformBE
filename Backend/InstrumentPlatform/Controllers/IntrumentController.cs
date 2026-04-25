@@ -27,7 +27,7 @@ namespace InstrumentPlatform.Controllers
             return Ok(instruments);
         }
 
-        [HttpGet("/instrument/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<InstrumentDTO>> GetInstrument(string id)
         {
             var instrument = await instrumentService.GetInstrumentAsync(id);

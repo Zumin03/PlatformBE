@@ -6,7 +6,7 @@ export async function getInstruments(): Promise<Instrument[]> {
 }
 
 export async function getInstrumentById(deviceId: string): Promise<Instrument> {
-  return fetchJson<Instrument>(`/instrument/${deviceId}`);
+  return fetchJson<Instrument>(`/api/Instrument/${deviceId}`);
 }
 
 export async function startMeasurement(deviceId: string): Promise<void> {

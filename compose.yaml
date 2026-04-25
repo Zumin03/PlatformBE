@@ -21,23 +21,12 @@ services:
     # restart: always
     # ports:
       # - 8080:8090
-  be:
-    build:
-      context: Backend
-    restart: always
-    ports:
-      - 8080:8080
-    environment:
-      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=platformdb;Username=boszm;Password=Nemezajelszo1;Encoding=UTF8"
-    depends_on:
-      db:
-        condition: service_healthy
 
   fe:
     build:
       context: Frontend
     restart: always
     ports:
-      - 80:80
-    depends_on:
-      - be
+      - 80:80 
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
