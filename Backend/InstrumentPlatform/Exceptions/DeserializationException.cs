@@ -6,7 +6,7 @@
     public class DeserializationException : Exception
     {
         public string Json { get; }
-        
+
         public DeserializationException(string json)
             : base($"An error occurred during deserialization json {json}")
         {

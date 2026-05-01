@@ -33,7 +33,7 @@ namespace InstrumentPlatform.Data
                 .HasOne<AuthorizedInstrument>()
                 .WithMany()
                 .HasForeignKey(i => i.Id)
-                .OnDelete(DeleteBehavior.Restrict);
+                .IsRequired();
 
             modelBuilder.Entity<AuthorizedInstrument>().HasData(
                 new AuthorizedInstrument { InstrumentId = "TC-00000" },

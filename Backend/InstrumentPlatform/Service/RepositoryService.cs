@@ -14,11 +14,11 @@ namespace InstrumentPlatform.Service
 
         public RepositoryService(
             ILogger<IRepositoryService> logger,
-            AppDbContext _db,
+            AppDbContext db,
             ITimeService timeService)
         {
             this.logger = logger;
-            this.db = _db;
+            this.db = db;
             this.timeService = timeService;
         }
 
